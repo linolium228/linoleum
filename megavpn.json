@@ -1,0 +1,442 @@
+{
+  "outbounds": [
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "50.7.113.162",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "7b13eaac-882d-43a0-b19e-6d2e867d624e",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "grpcSettings": {
+          "authority": "",
+          "multiMode": false,
+          "serviceName": ""
+        },
+        "network": "grpc",
+        "realitySettings": {
+          "allowInsecure": false,
+          "fingerprint": "chrome",
+          "publicKey": "6_rpeumu-IKDzYPxNBgBJ0NT9ReeApZMLguTppqTs1Q",
+          "serverName": "steamcommunity.com",
+          "show": false
+        },
+        "security": "reality"
+      },
+      "tag": "🇦🇹 Австрия 1"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "51.250.121.107",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "7b13eaac-882d-43a0-b19e-6d2e867d624e",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "grpcSettings": {
+          "authority": "",
+          "multiMode": false,
+          "serviceName": ""
+        },
+        "network": "grpc",
+        "realitySettings": {
+          "allowInsecure": false,
+          "fingerprint": "chrome",
+          "publicKey": "6_rpeumu-IKDzYPxNBgBJ0NT9ReeApZMLguTppqTs1Q",
+          "serverName": "goya.rutube.ru",
+          "show": false,
+          "spiderX": "/"
+        },
+        "security": "reality"
+      },
+      "tag": "🇦🇹 Австрия 2"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "51.250.121.107",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "7b13eaac-882d-43a0-b19e-6d2e867d624e",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "grpcSettings": {
+          "authority": "",
+          "multiMode": false,
+          "serviceName": ""
+        },
+        "network": "grpc",
+        "realitySettings": {
+          "allowInsecure": false,
+          "fingerprint": "chrome",
+          "publicKey": "6_rpeumu-IKDzYPxNBgBJ0NT9ReeApZMLguTppqTs1Q",
+          "serverName": "zen-yabro-morda.mediascope.mc.yandex.ru",
+          "show": false
+        },
+        "security": "reality"
+      },
+      "tag": "🇦🇹 Австрия 3"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "178.72.182.12",
+            "port": 52006,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "xtls-rprx-vision",
+                "id": "75807638-6f19-07d0-ae08-38492ee85c88",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tcpSettings": {
+          "header": {
+            "type": "none"
+          }
+        },
+        "tlsSettings": {
+          "allowInsecure": true,
+          "fingerprint": "",
+          "serverName": "cl-ru-1.edgeflux.ru",
+          "show": false
+        }
+      },
+      "tag": "🇷🇺 Россия"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "216.57.109.204",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "afd7a25e-f2b8-45a4-b735-54518fc9caaf",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "realitySettings": {
+          "allowInsecure": true,
+          "fingerprint": "chrome",
+          "publicKey": "0fmJjwdM2vOOTVeQcNtNaTjxpYeIj9NsVT-ddLKwnic",
+          "serverName": "yahoo.com",
+          "shortId": "2531",
+          "show": false
+        },
+        "security": "reality",
+        "tcpSettings": {
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "tag": "🇩🇪 Германия"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "kz.appav.online",
+            "port": 2083,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "a0e4e8b6-0518-4f19-803e-eece71583392",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "grpcSettings": {
+          "authority": "",
+          "multiMode": false,
+          "serviceName": "UpdateService"
+        },
+        "network": "grpc",
+        "realitySettings": {
+          "allowInsecure": false,
+          "fingerprint": "qq",
+          "publicKey": "J6NuOlIq3ypdTFc1TMhDDKmF8BWPnNWZq1EkxD7K-lQ",
+          "serverName": "apple.com",
+          "shortId": "6da16b1335651b38",
+          "show": false
+        },
+        "security": "reality"
+      },
+      "tag": "🇰🇿 Казахстан"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "nle.tunnelguard.ru",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "96a2f2b2-c566-45b5-8eeb-e490cf24d49c",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "alpn": [
+            "h2",
+            "http/1.1"
+          ],
+          "fingerprint": "",
+          "serverName": "nle.tunnelguard.ru",
+          "show": false
+        },
+        "xhttpSettings": {
+          "host": "nle.tunnelguard.ru",
+          "mode": "auto",
+          "path": "/",
+          "scMaxConcurrentPosts": 10,
+          "scMaxEachPostBytes": 1000000,
+          "scMinPostsIntervalMs": "30"
+        }
+      },
+      "tag": "🇳🇱 Нидерланды"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "45.138.16.62",
+            "port": 30073,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "8f59feef-aab9-4e0b-924c-2a31bb8f446f",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "none",
+        "xhttpSettings": {
+          "host": "",
+          "mode": "stream-one",
+          "path": "/secret",
+          "scMaxConcurrentPosts": 10,
+          "scMaxEachPostBytes": 1000000,
+          "scMinPostsIntervalMs": "30"
+        }
+      },
+      "tag": "🇵🇱 Польша"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "us2.appav.net",
+            "port": 2083,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "a0e4e8b6-0518-4f19-803e-eece71583392",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "grpcSettings": {
+          "authority": "",
+          "multiMode": false,
+          "serviceName": "UpdateService"
+        },
+        "network": "grpc",
+        "realitySettings": {
+          "allowInsecure": false,
+          "fingerprint": "qq",
+          "publicKey": "J6NuOlIq3ypdTFc1TMhDDKmF8BWPnNWZq1EkxD7K-lQ",
+          "serverName": "barclays.co.uk",
+          "shortId": "6da16b1335651b38",
+          "show": false
+        },
+        "security": "reality"
+      },
+      "tag": "🇺🇸 США"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "cl-eu-1.edgeflux.ru",
+            "port": 52006,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "xtls-rprx-vision",
+                "id": "75807638-6f19-0bb8-ae08-38492ee85c88",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tcpSettings": {
+          "header": {
+            "type": "none"
+          }
+        },
+        "tlsSettings": {
+          "allowInsecure": true,
+          "fingerprint": "",
+          "serverName": "cl-eu-1.edgeflux.ru",
+          "show": false
+        }
+      },
+      "tag": "🇫🇮 Финляндия"
+    }
+  ],
+  "remarks": "Мега ВПН 🔰",
+  "meta": {
+    "serverDescription": "Объединённая подписка из 10 серверов. Трафик безлимитный ∞"
+  }
+}
