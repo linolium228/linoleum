@@ -1,0 +1,576 @@
+{
+  "api": {
+    "listen": "[::1]:10085",
+    "services": [
+      "StatsService"
+    ],
+    "tag": "api"
+  },
+  "dns": {
+    "hosts": {
+      "cloudflare-dns.com": "1.1.1.1",
+      "domain:googleapis.cn": "googleapis.com",
+      "dns.google": "8.8.8.8"
+    },
+    "queryStrategy": "UseIP",
+    "servers": [
+      "https://cloudflare-dns.com/dns-query",
+      {
+        "address": "https://cloudflare-dns.com/dns-query",
+        "domains": [
+          "geosite:banned",
+          "geosite:category-ip-geo-detect"
+        ]
+      },
+      {
+        "address": "8.8.8.8",
+        "domains": [
+          "geosite:category-ru",
+          "geosite:wl-ru",
+          "geosite:private"
+        ],
+        "port": 53
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled": true
+      },
+      "tag": "socks"
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 10809,
+      "protocol": "http",
+      "settings": {
+        "auth": "noauth",
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled": true
+      },
+      "tag": "http"
+    }
+  ],
+  "log": {
+    "access": "/storage/emulated/0/Android/data/com.happproxy/files/assets/logs/access/access_log.txt",
+    "dnsLog": true,
+    "error": "/storage/emulated/0/Android/data/com.happproxy/files/assets/logs/error/merged_error_log.txt",
+    "loglevel": "debug"
+  },
+  "outbounds": [
+    {
+      "tag": "proxy1",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "50.7.113.162",
+            "port": 443,
+            "users": [
+              {
+                "id": "7b13eaac-882d-43a0-b19e-6d2e867d624e",
+                "encryption": "none",
+                "flow": "",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "steamcommunity.com",
+          "fingerprint": "chrome",
+          "publicKey": "6_rpeumu-IKDzYPxNBgBJ0NT9ReeApZMLguTppqTs1Q",
+          "allowInsecure": false,
+          "show": false
+        },
+        "grpcSettings": {
+          "serviceName": "",
+          "multiMode": false,
+          "authority": ""
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      }
+    },
+    {
+      "tag": "proxy2",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "51.250.121.107",
+            "port": 443,
+            "users": [
+              {
+                "id": "7b13eaac-882d-43a0-b19e-6d2e867d624e",
+                "encryption": "none",
+                "flow": "",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "goya.rutube.ru",
+          "fingerprint": "chrome",
+          "publicKey": "6_rpeumu-IKDzYPxNBgBJ0NT9ReeApZMLguTppqTs1Q",
+          "allowInsecure": false,
+          "show": false,
+          "spiderX": "/"
+        },
+        "grpcSettings": {
+          "serviceName": "",
+          "multiMode": false,
+          "authority": ""
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      }
+    },
+    {
+      "tag": "proxy3",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "51.250.121.107",
+            "port": 443,
+            "users": [
+              {
+                "id": "7b13eaac-882d-43a0-b19e-6d2e867d624e",
+                "encryption": "none",
+                "flow": "",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "zen-yabro-morda.mediascope.mc.yandex.ru",
+          "fingerprint": "chrome",
+          "publicKey": "6_rpeumu-IKDzYPxNBgBJ0NT9ReeApZMLguTppqTs1Q",
+          "allowInsecure": false,
+          "show": false
+        },
+        "grpcSettings": {
+          "serviceName": "",
+          "multiMode": false,
+          "authority": ""
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      }
+    },
+    {
+      "tag": "proxy4",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "178.72.182.12",
+            "port": 52006,
+            "users": [
+              {
+                "id": "75807638-6f19-07d0-ae08-38492ee85c88",
+                "encryption": "none",
+                "flow": "xtls-rprx-vision",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "cl-ru-1.edgeflux.ru",
+          "allowInsecure": true,
+          "fingerprint": "",
+          "show": false
+        },
+        "tcpSettings": {
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      }
+    },
+    {
+      "tag": "proxy5",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "216.57.109.204",
+            "port": 443,
+            "users": [
+              {
+                "id": "afd7a25e-f2b8-45a4-b735-54518fc9caaf",
+                "encryption": "none",
+                "flow": "",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "yahoo.com",
+          "fingerprint": "chrome",
+          "publicKey": "0fmJjwdM2vOOTVeQcNtNaTjxpYeIj9NsVT-ddLKwnic",
+          "shortId": "2531",
+          "allowInsecure": true,
+          "show": false
+        },
+        "tcpSettings": {
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      }
+    },
+    {
+      "tag": "proxy6",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "kz.appav.online",
+            "port": 2083,
+            "users": [
+              {
+                "id": "a0e4e8b6-0518-4f19-803e-eece71583392",
+                "encryption": "none",
+                "flow": "",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "apple.com",
+          "fingerprint": "qq",
+          "publicKey": "J6NuOlIq3ypdTFc1TMhDDKmF8BWPnNWZq1EkxD7K-lQ",
+          "shortId": "6da16b1335651b38",
+          "allowInsecure": false,
+          "show": false
+        },
+        "grpcSettings": {
+          "serviceName": "UpdateService",
+          "multiMode": false,
+          "authority": ""
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      }
+    },
+    {
+      "tag": "proxy7",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "nle.tunnelguard.ru",
+            "port": 443,
+            "users": [
+              {
+                "id": "96a2f2b2-c566-45b5-8eeb-e490cf24d49c",
+                "encryption": "none",
+                "flow": "",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "nle.tunnelguard.ru",
+          "alpn": ["h2", "http/1.1"],
+          "allowInsecure": false,
+          "fingerprint": "",
+          "show": false
+        },
+        "xhttpSettings": {
+          "host": "nle.tunnelguard.ru",
+          "path": "/",
+          "mode": "auto",
+          "scMaxConcurrentPosts": 10,
+          "scMaxEachPostBytes": 1000000,
+          "scMinPostsIntervalMs": "30"
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      }
+    },
+    {
+      "tag": "proxy8",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "45.138.16.62",
+            "port": 30073,
+            "users": [
+              {
+                "id": "8f59feef-aab9-4e0b-924c-2a31bb8f446f",
+                "encryption": "none",
+                "flow": "",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "none",
+        "xhttpSettings": {
+          "host": "",
+          "path": "/secret",
+          "mode": "stream-one",
+          "scMaxConcurrentPosts": 10,
+          "scMaxEachPostBytes": 1000000,
+          "scMinPostsIntervalMs": "30"
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      }
+    },
+    {
+      "tag": "proxy9",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "us2.appav.net",
+            "port": 2083,
+            "users": [
+              {
+                "id": "a0e4e8b6-0518-4f19-803e-eece71583392",
+                "encryption": "none",
+                "flow": "",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "barclays.co.uk",
+          "fingerprint": "qq",
+          "publicKey": "J6NuOlIq3ypdTFc1TMhDDKmF8BWPnNWZq1EkxD7K-lQ",
+          "shortId": "6da16b1335651b38",
+          "allowInsecure": false,
+          "show": false
+        },
+        "grpcSettings": {
+          "serviceName": "UpdateService",
+          "multiMode": false,
+          "authority": ""
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      }
+    },
+    {
+      "tag": "proxy10",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "cl-eu-1.edgeflux.ru",
+            "port": 52006,
+            "users": [
+              {
+                "id": "75807638-6f19-0bb8-ae08-38492ee85c88",
+                "encryption": "none",
+                "flow": "xtls-rprx-vision",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "cl-eu-1.edgeflux.ru",
+          "allowInsecure": true,
+          "fingerprint": "",
+          "show": false
+        },
+        "tcpSettings": {
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      }
+    },
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "block"
+    }
+  ],
+  "policy": {
+    "levels": {
+      "8": {
+        "connIdle": 300,
+        "handshake": 4,
+        "uplinkOnly": 1,
+        "downlinkOnly": 1
+      }
+    },
+    "system": {
+      "statsOutboundUplink": true,
+      "statsOutboundDownlink": true
+    }
+  },
+  "remarks": "Мега ВПН",
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "ip": ["1.1.1.1"],
+        "port": "443",
+        "outboundTag": "proxy1"
+      },
+      {
+        "ip": ["8.8.8.8"],
+        "port": "53",
+        "outboundTag": "direct"
+      },
+      {
+        "domain": ["geosite:banned", "geosite:category-ip-geo-detect"],
+        "outboundTag": "proxy1"
+      },
+      {
+        "domain": ["geosite:category-ru", "geosite:wl-ru", "geosite:private"],
+        "outboundTag": "direct"
+      },
+      {
+        "ip": ["geoip:ru", "geoip:wl-ru", "geoip:private"],
+        "outboundTag": "direct"
+      },
+      {
+        "ip": [
+          "10.0.0.0/8",
+          "172.16.0.0/12",
+          "192.168.0.0/16",
+          "169.254.0.0/16",
+          "224.0.0.0/4",
+          "255.255.255.255"
+        ],
+        "outboundTag": "direct"
+      }
+    ]
+  },
+  "stats": {}
+}
