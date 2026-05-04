@@ -1,0 +1,261 @@
+{
+  "remarks": "Мега ВПН",
+  "description": "я хз чо сюда пока что писат",
+  "traffic": "∞",
+  "api": {
+    "listen": "[::1]:10085",
+    "services": ["StatsService"],
+    "tag": "api"
+  },
+  "dns": {
+    "hosts": {
+      "cloudflare-dns.com": "1.1.1.1",
+      "domain:googleapis.cn": "googleapis.com",
+      "dns.google": "8.8.8.8"
+    },
+    "queryStrategy": "UseIP",
+    "servers": [
+      "https://cloudflare-dns.com/dns-query",
+      {
+        "address": "https://cloudflare-dns.com/dns-query",
+        "domains": ["geosite:banned", "geosite:category-ip-geo-detect"]
+      },
+      {
+        "address": "8.8.8.8",
+        "domains": ["geosite:category-ru", "geosite:wl-ru", "geosite:private"],
+        "port": 53
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": { "auth": "noauth", "udp": true, "userLevel": 8 },
+      "sniffing": { "destOverride": ["http", "tls", "quic"], "enabled": true },
+      "tag": "socks"
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 10809,
+      "protocol": "http",
+      "settings": { "auth": "noauth", "userLevel": 8 },
+      "sniffing": { "destOverride": ["http", "tls", "quic"], "enabled": true },
+      "tag": "http"
+    }
+  ],
+  "log": {
+    "access": "/storage/emulated/0/Android/data/com.happproxy/files/assets/logs/access/access_log.txt",
+    "dnsLog": true,
+    "loglevel": "debug"
+  },
+  "outbounds": [
+    {
+      "tag": "🇦🇹 Австрия 1",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "50.7.113.162",
+          "port": 443,
+          "users": [{ "encryption": "none", "flow": "", "id": "7b13eaac-882d-43a0-b19e-6d2e867d624e", "level": 8, "security": "auto" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "fingerprint": "chrome",
+          "publicKey": "6_rpeumu-IKDzYPxNBgBJ0NT9ReeApZMLguTppqTs1Q",
+          "serverName": "steamcommunity.com"
+        }
+      }
+    },
+    {
+      "tag": "🇦🇹 Австрия 2",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "51.250.121.107",
+          "port": 443,
+          "users": [{ "encryption": "none", "flow": "", "id": "7b13eaac-882d-43a0-b19e-6d2e867d624e", "level": 8, "security": "auto" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "fingerprint": "chrome",
+          "publicKey": "6_rpeumu-IKDzYPxNBgBJ0NT9ReeApZMLguTppqTs1Q",
+          "serverName": "goya.rutube.ru"
+        }
+      }
+    },
+    {
+      "tag": "🇦🇹 Австрия 3",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "51.250.121.107",
+          "port": 443,
+          "users": [{ "encryption": "none", "flow": "", "id": "7b13eaac-882d-43a0-b19e-6d2e867d624e", "level": 8, "security": "auto" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "fingerprint": "chrome",
+          "publicKey": "6_rpeumu-IKDzYPxNBgBJ0NT9ReeApZMLguTppqTs1Q",
+          "serverName": "zen-yabro-morda.mediascope.mc.yandex.ru"
+        }
+      }
+    },
+    {
+      "tag": "🇷🇺 Россия",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "178.72.182.12",
+          "port": 52006,
+          "users": [{ "encryption": "none", "flow": "xtls-rprx-vision", "id": "75807638-6f19-07d0-ae08-38492ee85c88", "level": 8, "security": "auto" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": { "allowInsecure": true, "serverName": "cl-ru-1.edgeflux.ru" }
+      }
+    },
+    {
+      "tag": "🇩🇪 Германия",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "216.57.109.204",
+          "port": 443,
+          "users": [{ "encryption": "none", "flow": "", "id": "afd7a25e-f2b8-45a4-b735-54518fc9caaf", "level": 8, "security": "auto" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "fingerprint": "chrome",
+          "publicKey": "0fmJjwdM2vOOTVeQcNtNaTjxpYeIj9NsVT-ddLKwnic",
+          "serverName": "yahoo.com",
+          "shortId": "2531"
+        }
+      }
+    },
+    {
+      "tag": "🇰🇿 Казахстан",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "kz.appav.online",
+          "port": 2083,
+          "users": [{ "encryption": "none", "flow": "", "id": "a0e4e8b6-0518-4f19-803e-eece71583392", "level": 8, "security": "auto" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "fingerprint": "qq",
+          "publicKey": "J6NuOlIq3ypdTFc1TMhDDKmF8BWPnNWZq1EkxD7K-lQ",
+          "serverName": "apple.com",
+          "shortId": "6da16b1335651b38"
+        }
+      }
+    },
+    {
+      "tag": "🇳🇱 Нидерланды",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "nle.tunnelguard.ru",
+          "port": 443,
+          "users": [{ "encryption": "none", "flow": "", "id": "96a2f2b2-c566-45b5-8eeb-e490cf24d49c", "level": 8, "security": "auto" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "tls",
+        "tlsSettings": { "allowInsecure": false, "serverName": "nle.tunnelguard.ru" },
+        "xhttpSettings": { "host": "nle.tunnelguard.ru", "path": "/" }
+      }
+    },
+    {
+      "tag": "🇵🇱 Польша",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "45.138.16.62",
+          "port": 30073,
+          "users": [{ "encryption": "none", "flow": "", "id": "8f59feef-aab9-4e0b-924c-2a31bb8f446f", "level": 8, "security": "auto" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "none",
+        "xhttpSettings": { "path": "/secret", "mode": "stream-one" }
+      }
+    },
+    {
+      "tag": "🇺🇸 США",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "us2.appav.net",
+          "port": 2083,
+          "users": [{ "encryption": "none", "flow": "", "id": "a0e4e8b6-0518-4f19-803e-eece71583392", "level": 8, "security": "auto" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "fingerprint": "qq",
+          "publicKey": "J6NuOlIq3ypdTFc1TMhDDKmF8BWPnNWZq1EkxD7K-lQ",
+          "serverName": "barclays.co.uk",
+          "shortId": "6da16b1335651b38"
+        }
+      }
+    },
+    {
+      "tag": "🇫🇮 Финляндия",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "cl-eu-1.edgeflux.ru",
+          "port": 52006,
+          "users": [{ "encryption": "none", "flow": "xtls-rprx-vision", "id": "75807638-6f19-0bb8-ae08-38492ee85c88", "level": 8, "security": "auto" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": { "allowInsecure": true, "serverName": "cl-eu-1.edgeflux.ru" }
+      }
+    },
+    { "protocol": "freedom", "tag": "direct" },
+    { "protocol": "blackhole", "tag": "block" }
+  ],
+  "policy": {
+    "levels": { "8": { "connIdle": 300, "downlinkOnly": 1, "handshake": 4, "uplinkOnly": 1 } },
+    "system": { "statsOutboundUplink": true, "statsOutboundDownlink": true }
+  },
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      { "ip": ["1.1.1.1"], "outboundTag": "proxy", "port": "443" },
+      { "ip": ["8.8.8.8"], "outboundTag": "direct", "port": "53" },
+      { "domain": ["geosite:banned", "geosite:category-ip-geo-detect"], "outboundTag": "proxy" },
+      { "domain": ["geosite:category-ru", "geosite:wl-ru", "geosite:private"], "outboundTag": "direct" },
+      { "ip": ["geoip:ru", "geoip:wl-ru", "geoip:private"], "outboundTag": "direct" },
+      { "ip": ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "169.254.0.0/16", "224.0.0.0/4", "255.255.255.255"], "outboundTag": "direct" }
+    ]
+  },
+  "stats": {}
+}
