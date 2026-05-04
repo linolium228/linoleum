@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>VPN Subscription</title>
+</head>
+<body>
+<script>
+    // Определяем путь запроса
+    var path = window.location.pathname;
+    
+    if (path === "/sub/megavpn") {
+        // Устанавливаем правильные заголовки через мета-теги
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/megavpn.json', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Выводим JSON как есть
+                document.body.innerText = xhr.responseText;
+            }
+        };
+        xhr.send();
+    }
+</script>
+</body>
+</html>
