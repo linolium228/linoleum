@@ -1,0 +1,204 @@
+{
+  "api": {
+    "listen": "[::1]:10085",
+    "services": [
+      "StatsService"
+    ],
+    "tag": "api"
+  },
+  "dns": {
+    "hosts": {
+      "cloudflare-dns.com": "1.1.1.1",
+      "domain:googleapis.cn": "googleapis.com",
+      "dns.google": "8.8.8.8"
+    },
+    "queryStrategy": "UseIP",
+    "servers": [
+      "https://cloudflare-dns.com/dns-query",
+      {
+        "address": "https://cloudflare-dns.com/dns-query",
+        "domains": [
+          "geosite:banned",
+          "geosite:category-ip-geo-detect"
+        ]
+      },
+      {
+        "address": "8.8.8.8",
+        "domains": [
+          "geosite:category-ru",
+          "geosite:wl-ru",
+          "geosite:private"
+        ],
+        "port": 53
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled": true
+      },
+      "tag": "socks"
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 10809,
+      "protocol": "http",
+      "settings": {
+        "auth": "noauth",
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled": true
+      },
+      "tag": "http"
+    }
+  ],
+  "log": {
+    "access": "/storage/emulated/0/Android/data/com.happproxy/files/assets/logs/access/access_log.txt",
+    "dnsLog": true,
+    "error": "/storage/emulated/0/Android/data/com.happproxy/files/assets/logs/error/1777918912005_error_log.txt",
+    "loglevel": "debug"
+  },
+  "outbounds": [
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": ""
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "195.238.126.155",
+            "port": 2083,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "a0e4e8b6-0518-4f19-803e-eece71583392",
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "grpcSettings": {
+          "authority": "",
+          "multiMode": false,
+          "serviceName": "UpdateService"
+        },
+        "network": "grpc",
+        "realitySettings": {
+          "allowInsecure": false,
+          "fingerprint": "chrome",
+          "publicKey": "J6NuOlIq3ypdTFc1TMhDDKmF8BWPnNWZq1EkxD7K-lQ",
+          "serverName": "goya.rutube.ru",
+          "shortId": "6da16b1335651b38",
+          "show": false
+        },
+        "security": "reality"
+      },
+      "tag": "proxy"
+    },
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "block"
+    }
+  ],
+  "policy": {
+    "levels": {
+      "8": {
+        "connIdle": 300,
+        "downlinkOnly": 1,
+        "handshake": 4,
+        "uplinkOnly": 1
+      }
+    },
+    "system": {
+      "statsOutboundUplink": true,
+      "statsOutboundDownlink": true
+    }
+  },
+  "remarks": "🇱🇹 Литва [2] ⚪️",
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "ip": [
+          "1.1.1.1"
+        ],
+        "outboundTag": "proxy",
+        "port": "443"
+      },
+      {
+        "ip": [
+          "8.8.8.8"
+        ],
+        "outboundTag": "direct",
+        "port": "53"
+      },
+      {
+        "domain": [
+          "geosite:banned",
+          "geosite:category-ip-geo-detect"
+        ],
+        "outboundTag": "proxy"
+      },
+      {
+        "domain": [
+          "geosite:category-ru",
+          "geosite:wl-ru",
+          "geosite:private"
+        ],
+        "outboundTag": "direct"
+      },
+      {
+        "ip": [
+          "geoip:ru",
+          "geoip:wl-ru",
+          "geoip:private"
+        ],
+        "outboundTag": "direct"
+      },
+      {
+        "ip": [
+          "10.0.0.0/8",
+          "172.16.0.0/12",
+          "192.168.0.0/16",
+          "169.254.0.0/16",
+          "224.0.0.0/4",
+          "255.255.255.255"
+        ],
+        "outboundTag": "direct"
+      }
+    ]
+  },
+  "stats": {}
+}
